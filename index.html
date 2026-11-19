@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODLY — Fast Food Online Shop</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="loader-content">
+            <i class="fa-solid fa-burger fa-bounce"></i>
+            <h2>FOODLY</h2>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-burger"></i> FOODLY
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-translate="home">Home</a></li>
+                    <li><a href="#menu" class="nav-link" data-translate="menu">Menu</a></li>
+                    <li><a href="#about" class="nav-link" data-translate="about">About Us</a></li>
+                    <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-selector">
+                    <select id="langSelect">
+                        <option value="uz">🇺🇿 O'zbek</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                    </select>
+                </div>
+
+                <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="favoritesBtn" class="icon-btn" title="Favorites">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="badge" id="favoritesCount">0</span>
+                </button>
+
+                <button id="cartBtn" class="icon-btn" title="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+
+                <button id="userBtn" class="icon-btn" title="Login / Register">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+
+                <button id="menuToggle" class="icon-btn menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-subtitle" data-translate="heroSubtitle">Fast & Delicious</span>
+                    <h1 data-translate="heroTitle">Enjoy Delicious Fast Food Anytime</h1>
+                    <p data-translate="heroDesc">Satisfy your cravings with our premium burgers, pizzas, lavash, and more. Delivered hot & fresh to your door.</p>
+                    <div class="hero-buttons">
+                        <a href="#menu" class="btn btn-primary" data-translate="orderNow">Order Now</a>
+                        <a href="#menu" class="btn btn-secondary" data-translate="exploreMenu">Explore Menu</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Delicious Burger">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Info Banner -->
+        <section class="features">
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3 data-translate="feat1Title">Fast Delivery</h3>
+                    <p data-translate="feat1Desc">Delivery in 30 minutes or free</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3 data-translate="feat2Title">Fresh Food</h3>
+                    <p data-translate="feat2Desc">Made with high quality ingredients</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <h3 data-translate="feat3Title">24/7 Support</h3>
+                    <p data-translate="feat3Desc">Always here to help you out</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="menuTitle">Our Delicious Menu</h2>
+                    <p data-translate="menuSubtitle">Choose from our wide variety of fast food items</p>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search food items...">
+                    </div>
+                    <div class="sort-box">
+                        <select id="sortSelect">
+                            <option value="all" data-translate="filterAll">All Products</option>
+                            <option value="popular" data-translate="filterPopular">Most Popular</option>
+                            <option value="low-high" data-translate="filterLowHigh">Price: Low to High</option>
+                            <option value="high-low" data-translate="filterHighLow">Price: High to Low</option>
+                            <option value="rating" data-translate="filterRating">Top Rated</option>
+                            <option value="new" data-translate="filterNew">New Items</option>
+                            <option value="discount" data-translate="filterDiscount">Discounts</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="categories-tabs" id="categoriesTabs">
+                    <button class="cat-btn active" data-category="all" data-translate="catAll">All</button>
+                    <button class="cat-btn" data-category="BURGER" data-translate="catBurger">Burger</button>
+                    <button class="cat-btn" data-category="PIZZA" data-translate="catPizza">Pizza</button>
+                    <button class="cat-btn" data-category="LAVASH" data-translate="catLavash">Lavash</button>
+                    <button class="cat-btn" data-category="HOT DOG" data-translate="catHotdog">Hot Dog</button>
+                    <button class="cat-btn" data-category="FRIES" data-translate="catFries">Fries</button>
+                    <button class="cat-btn" data-category="CHICKEN" data-translate="catChicken">Chicken</button>
+                    <button class="cat-btn" data-category="DRINKS" data-translate="catDrinks">Drinks</button>
+                    <button class="cat-btn" data-category="DESSERTS" data-translate="catDesserts">Desserts</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be injected dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Restaurant Interior">
+                </div>
+                <div class="about-content">
+                    <span class="subtitle" data-translate="aboutSubtitle">About FOODLY</span>
+                    <h2 data-translate="aboutTitle">We Provide Best Quality Fast Food</h2>
+                    <p data-translate="aboutDesc">FOODLY was founded with a simple mission: to serve fresh, mouth-watering fast food crafted from the finest ingredients. Our chefs combine traditional recipes with modern flavors to bring you an unforgettable culinary experience.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>30+</h3>
+                            <p data-translate="statDishes">Dishes</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15k+</h3>
+                            <p data-translate="statClients">Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p data-translate="statYears">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="contactTitle">Get In Touch</h2>
+                    <p data-translate="contactSubtitle">We would love to hear from you</p>
+                </div>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4 data-translate="addressTitle">Address</h4>
+                                <p>Tashkent City, Amir Temur Street 15</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4 data-translate="phoneTitle">Phone</h4>
+                                <p>+998 71 123 45 67</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4 data-translate="emailTitle">Email</h4>
+                                <p>support@foodly.uz</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary" data-translate="sendMsg">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo"><i class="fa-solid fa-burger"></i> FOODLY</a>
+                <p data-translate="footerDesc">Delicious fast food delivered fast to your doorstep. Taste the quality!</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-translate="quickLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-translate="home">Home</a></li>
+                    <li><a href="#menu" data-translate="menu">Menu</a></li>
+                    <li><a href="#about" data-translate="about">About Us</a></li>
+                    <li><a href="#contact" data-translate="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-translate="categoriesFooter">Categories</h4>
+                <ul>
+                    <li><a href="#menu" data-translate="catBurger">Burger</a></li>
+                    <li><a href="#menu" data-translate="catPizza">Pizza</a></li>
+                    <li><a href="#menu" data-translate="catLavash">Lavash</a></li>
+                    <li><a href="#menu" data-translate="catDrinks">Drinks</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-translate="newsletterTitle">Newsletter</h4>
+                <p data-translate="newsletterDesc">Subscribe for special offers and discounts.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FOODLY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeProductModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" id="productModalBody">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer / Modal -->
+    <div class="drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3 data-translate="cartTitle">Your Cart</h3>
+            <button class="close-drawer" id="closeCartDrawer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="cartItemsContainer">
+            <!-- Cart items injected via JS -->
+        </div>
+        <div class="drawer-footer" id="cartFooter">
+            <!-- Cart summary injected via JS -->
+        </div>
+    </div>
+
+    <!-- Favorites Drawer / Modal -->
+    <div class="drawer" id="favoritesDrawer">
+        <div class="drawer-header">
+            <h3 data-translate="favTitle">Favorite Products</h3>
+            <button class="close-drawer" id="closeFavoritesDrawer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="favoritesItemsContainer">
+            <!-- Favorite items injected via JS -->
+        </div>
+    </div>
+
+    <!-- Auth Modal (Login / Register) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeAuthModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="loginTabBtn" data-translate="login">Login</button>
+                <button class="auth-tab-btn" id="registerTabBtn" data-translate="register">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label data-translate="emailOrPhone">Email or Phone</label>
+                    <input type="text" id="loginIdentifier" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="password">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> <span data-translate="rememberMe">Remember Me</span></label>
+                    <a href="#" data-translate="forgotPass">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-translate="loginBtn">Login</button>
+            </form>
+
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-translate="firstName">First Name</label>
+                        <input type="text" id="regFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="lastName">Last Name</label>
+                        <input type="text" id="regLastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-translate="email">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="phone">Phone Number</label>
+                    <input type="tel" id="regPhone" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="password">Password</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label data-translate="confirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-translate="registerBtn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content checkout-modal-content">
+            <button class="close-modal" id="closeCheckoutModal"><i class="fa-solid fa-xmark"></i></button>
+            <h2 data-translate="checkoutTitle">Checkout Order</h2>
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-translate="firstName">First Name</label>
+                        <input type="text" id="chkFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="lastName">Last Name</label>
+                        <input type="text" id="chkLastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-translate="phone">Phone Number</label>
+                    <input type="tel" id="chkPhone" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-translate="city">City / Region</label>
+                        <input type="text" id="chkCity" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="district">District</label>
+                        <input type="text" id="chkDistrict" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-translate="street">Street</label>
+                        <input type="text" id="chkStreet" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-translate="house">House / Apartment</label>
+                        <input type="text" id="chkHouse" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-translate="comment">Additional Notes</label>
+                    <textarea id="chkComment" rows="3"></textarea>
+                </div>
+                <div class="checkout-summary-box">
+                    <div class="summary-row">
+                        <span data-translate="subtotal">Subtotal:</span>
+                        <span id="chkSubtotal">0 UZS</span>
+                    </div>
+                    <div class="summary-row">
+                        <span data-translate="deliveryFee">Delivery Fee:</span>
+                        <span id="chkDelivery">15,000 UZS</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span data-translate="totalAmount">Total Amount:</span>
+                        <span id="chkTotal">0 UZS</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-translate="placeOrder">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
